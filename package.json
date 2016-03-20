@@ -4,6 +4,7 @@
   "description": "Week 1 Challenge: create form for users to create their own movies to be added to the mongodb database\"",
   "main": "app.js",
   "scripts": {
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
