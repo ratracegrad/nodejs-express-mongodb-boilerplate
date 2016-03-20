@@ -7,6 +7,26 @@
     <body>
 
         <div class="container">
+
+            <br />
+            <H1>Movies in Database</H1>
+            <table class="table table-striped">
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>IMDB</th>
+                </tr>
+                {% for movie in movies %}
+                <tr>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.imdb}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <hr>
+
             <h1>Enter details below to add your movie</h1>
             <form action="/" method="POST" role='form'>
                 <div class="form-group">
@@ -21,7 +41,7 @@
                     <label for="movieIMDB">IMDB</label>
                    <input type="text" class="form-control" name="movieIMDB" id="movieIMDB" placeholder="IMDB" required>
                 </div>
-                  
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

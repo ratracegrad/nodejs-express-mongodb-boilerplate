@@ -28,7 +28,9 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
     console.log('Successfully connected to mondodb');
 
     app.get('/', function(req, res) {
-        res.render('index');
+        db.collection('movies').find({}).toArray(function(err, docs) {
+            res.render('index', {'movies': docs} );
+        });
     });
 
     app.post('/', function(req, res) {
@@ -42,7 +44,6 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
                                             imdb: imdb
                                         }, function(err, doc) {
                                             assert.equal(null, err);
-                                            // res.send("Added the movie: " + title);
                                             res.render('newmovie', {movie: req.body});
                                         }
         );
