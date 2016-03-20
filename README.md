@@ -14,6 +14,9 @@ node app.js
 3. Express.js
 4. Bootstrap
 
+## Live Demonstration
+[You can view this app in production here](http://nodemongodemo.herokuapp.com/)
+
 
 ## Screenshots
 ### Homepage
