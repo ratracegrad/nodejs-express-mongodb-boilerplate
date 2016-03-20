@@ -8,6 +8,9 @@ var logger = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
 var port = process.env.PORT || 8080;
+var mongoUri = process.env.MONGOLAB_URI ||
+        process.env.MONGOHQ_URL ||
+        'mongodb://localhost/video';
 
 var app = express();
 
@@ -26,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // make sure we can connect to database before starting server
-MongoClient.connect('mongodb://movie:moviepassword@ds035385.mlab.com:35385/heroku_qp5j872q', function(err, db) {
+MongoClient.connect(mongoUri, function(err, db) {
 
     assert.equal(null, err);
     console.log('Successfully connected to mondodb');
