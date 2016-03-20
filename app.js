@@ -6,11 +6,13 @@ var bodyParser = require('body-parser');
 var assert = require('assert');
 var logger = require('morgan');
 var path = require('path');
+var favicon = require('serve-favicon');
 
 var app = express();
 
 
 // configure our server
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
