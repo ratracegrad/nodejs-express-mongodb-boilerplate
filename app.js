@@ -20,6 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('port', process.env.PORT || 8080);
 
 
 
@@ -85,7 +86,7 @@ MongoClient.connect('mongodb://movie:moviepassword@ds035385.mlab.com:35385/herok
 
 
 
-    app.listen(3000, function() {
+    app.listen(port, function() {
         console.log('Server listening on port 3000');
     });
 
